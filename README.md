@@ -1,4 +1,4 @@
-# 회의록 변환 앱 (가칭)
+# NowNote
 
 > “속도를 줄이는 대신, 신뢰를 높이는 기술을 만들자.”
 >
@@ -19,45 +19,86 @@
 ## 2. 프로젝트 목표 (Goals)
 
 | 구분 | 내용 |
-| :--- | :--- |
-|  핵심 목표 | 회의 종료 후 30분 내 텍스트 변환 완료 |
-|  사용자 경험 목표 | 변환 중에도 “안심감”을 주는 UX (진행률·감정 피드백 디자인) |
-|  기술 목표 | AI 기반 음성-텍스트 변환(STT) 파이프라인 + 실시간 UI 업데이트 |
-|  학습 목표 | AI 빌더(Gemini, ChatGPT, Copilot 등) 기반으로 MVP를 자체 설계·개발 |
+|------|------|
+| **핵심 목표** | 회의 종료 후 30분 내 텍스트 변환 완료 |
+| **사용자 경험 목표** | 변환 중에도 “안심감”을 주는 UX (진행률·감정 피드백 디자인) |
+| **기술 목표** | One Source Multi Use: React 코드로 웹/안드로이드/iOS 동시 지원 |
+| **학습 목표** | AI 빌더(Gemini 등) 기반으로 MVP 자체 설계·개발 |
+
+### 2.1. 프로젝트 구조 (Monorepo)
+
+이 프로젝트는 **프론트엔드와 백엔드가 하나의 저장소에서 관리되는 모노레포(Monorepo)** 구조입니다.
+
+```bash
+root/
+ ├─ frontend/   # React(Vite) 기반 웹 UI 및 Capacitor 앱 핵심
+ └─ backend/    # Node.js(Express) 기반 API 서버 (예정)
+```
 
 ## 3. 로컬에서 실행하기 (Local Setup)
 
 이 프로젝트는 `frontend` 폴더에 React(Vite) 코드를, 향후 `backend` 폴더에 서버 코드를 관리하는 **모노레포(Monorepo)** 구조입니다.
 
-1.  **프론트엔드 폴더로 이동**
-    ```bash
+### 1.  **A. 웹 앱 실행 (실시간 미리보기)**
+    
+```bash
+    # 프론트엔드 폴더로 이동
     cd frontend
-    ```
-
-2.  **의존성 설치**
-    ```bash
+    
+    # 의존성 설치 (최초 1회)
     npm install
-    ```
 
-3.  **환경 변수 설정**
-    `frontend` 폴더에 `.env.local` 파일을 생성하고, Gemini API 키를 입력합니다.
-    ```env
+    # 환경 변수 설정 (.env.local)
     GEMINI_API_KEY=YOUR_GEMINI_API_KEY_HERE
-    ```
 
-4.  **개발 서버 실행**
-    ```bash
+    # 개발 서버 실행
     npm run dev
-    ```
+```
+➡ 브라우저에서 http://localhost:3000  접속
+
+### 2.  **B. 모바일 앱 실행 (Android / iOS)**
+웹 앱을 실제 스마트폰 기기나 시뮬레이터에서 실행할 수 있습니다.
+
+**[최초 1회 설정]**
+```bash
+    cd frontend
+    npm install @capacitor/core @capacitor/cli @capacitor/android @capacitor/ios
+    npx cap init
+```
+
+- web asset directory를 dist로 설정
+- vite.config.ts에 base: './' 추가
+
+**플랫폼 추가**
+```bash
+    # Android
+    npx cap add android
+
+    # iOS (macOS 전용)
+    # npx cap add ios
+```
+
+**[개발 후 매번 실행]**
+```bash
+    cd frontend
+    npm run build        # React 빌드
+    npx cap sync         # Capacitor 동기화
+
+    # 안드로이드 스튜디오로 열기
+    npx cap open android
+
+    # (macOS) Xcode로 열기
+    # npx cap open ios
+```
 
 ## 4. 기술 스택 (Tech Stack)
 
 | 영역 | 사용 도구 | 비고 |
 | :--- | :--- | :--- |
 |  **Frontend** | Google AI Studio (Gemini), Vite/React | MVP 자동 생성 |
+|  **Mobile** | Capacitor | React 앱을 네이티브로 포장 |
 |  **Backend** | Node.js + Express + TypeScript | Mock API 및 STT 준비 |
 |  **AI 도구** | Gemini, ChatGPT, Copilot | UI 자동화, 코드 제안, 문서 생성 |
-|  **Design** | Figma, Magician AI, LottieFiles | 감정 피드백 애니메이션 |
 |  **Infra** | GitHub, Actions, AWS, Docker | 버전관리 및 배포 자동화 |
 |  **Docs** | Notion, Markdown, ADR 기록 | 전 과정 문서화 |
 
@@ -67,10 +108,10 @@
     → 단순 속도보다 “예측 가능한 기다림”이 주는 안심감을 설계
 * **AI 중심 개발 플로우**
     → 설계·개발·문서화 모두 Gemini·ChatGPT·Copilot과 협업
-* **모듈형 구조**
-    → 백엔드/프론트/문서를 분리해 성장 가능성 확보
-* **실험과 기록의 일상화**
-    → 노션에 모든 의사결정(ADR)과 실험 로그를 남김
+* **하이브리드 우선 (Hybrid-First)**
+    → React를 원본(Source of Truth)으로 웹/모바일 동시 배포
+* **네이티브 기능 브릿지 최소화**
+    → Capacitor로 푸시 알림, 파일 시스템, 진동 등 핵심 기능만 연동
 
 ## 6. 기대 효과 (Expected Outcomes)
 
@@ -88,3 +129,4 @@
 * 요약(Summarization)
 * 팀 공유용 회의록 자동 포맷팅 기능
 * AI 회의 비서 연동 (예: “이 부분 다시 들어줘” 기능)
+* [Mobile] 변환 완료 푸시 알림

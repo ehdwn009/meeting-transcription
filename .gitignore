@@ -1,0 +1,27 @@
+# --- Node / package managers
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+# --- Capacitor / Android build
+**/android/.gradle/
+**/android/local.properties
+**/android/captures/
+**/android/**/build/
+**/android/capacitor/build/
+**/android/app/build/
+**/android/build/
+
+# --- IDE
+.vscode/
+**/.idea/
+*.iml
+
+# --- OS
+.DS_Store
+Thumbs.db
+
+# --- Logs / misc
+*.log
