@@ -39,8 +39,9 @@ root/
 
 이 프로젝트는 `frontend` 폴더에 React(Vite) 코드를, 향후 `backend` 폴더에 서버 코드를 관리하는 **모노레포(Monorepo)** 구조입니다.
 
-1.  **A. 웹 앱 실행 (실시간 미리보기)**
-    ```bash
+### 1.  **A. 웹 앱 실행 (실시간 미리보기)**
+    
+```bash
     # 프론트엔드 폴더로 이동
     cd frontend
     
@@ -52,35 +53,33 @@ root/
 
     # 개발 서버 실행
     npm run dev
-    ```
-    ➡ 브라우저에서 http://localhost:3000  접속
+```
+➡ 브라우저에서 http://localhost:3000  접속
 
-2.  **B. 모바일 앱 실행 (Android / iOS)**
+### 2.  **B. 모바일 앱 실행 (Android / iOS)**
 웹 앱을 실제 스마트폰 기기나 시뮬레이터에서 실행할 수 있습니다.
 
-[최초 1회 설정]
-
-    ```bash
+**[최초 1회 설정]**
+```bash
     cd frontend
     npm install @capacitor/core @capacitor/cli @capacitor/android @capacitor/ios
     npx cap init
-    ```
+```
 
 - web asset directory를 dist로 설정
 - vite.config.ts에 base: './' 추가
 
 **플랫폼 추가**
-
-    ```bash
+```bash
     # Android
     npx cap add android
 
     # iOS (macOS 전용)
     # npx cap add ios
-    ```
+```
 
 **[개발 후 매번 실행]**
-    ```bash
+```bash
     cd frontend
     npm run build        # React 빌드
     npx cap sync         # Capacitor 동기화
@@ -90,7 +89,7 @@ root/
 
     # (macOS) Xcode로 열기
     # npx cap open ios
-    ```
+```
 
 ## 4. 기술 스택 (Tech Stack)
 
