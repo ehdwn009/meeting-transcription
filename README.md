@@ -20,23 +20,12 @@
 
 | 구분 | 내용 |
 | :--- | :--- |
-| 🎯 핵심 목표 | 회의 종료 후 30분 내 텍스트 변환 완료 |
-| 🪄 사용자 경험 목표 | 변환 중에도 **“안심감”**을 주는 UX (진행률·감정 피드백 디자인) |
-| ⚙️ 기술 목표 | AI 기반 음성-텍스트 변환(STT) 파이프라인 + 실시간 UI 업데이트 |
-| 🧠 학습 목표 | AI 빌더(Gemini, ChatGPT, Copilot 등) 기반으로 MVP를 자체 설계·개발 |
+|  핵심 목표 | 회의 종료 후 30분 내 텍스트 변환 완료 |
+|  사용자 경험 목표 | 변환 중에도 **“안심감”**을 주는 UX (진행률·감정 피드백 디자인) |
+|  기술 목표 | AI 기반 음성-텍스트 변환(STT) 파이프라인 + 실시간 UI 업데이트 |
+|  학습 목표 | AI 빌더(Gemini, ChatGPT, Copilot 등) 기반으로 MVP를 자체 설계·개발 |
 
-## 3. 현재 진행 현황 (Progress Snapshot)
-
-| 구분 | 상태 | 설명 |
-| :--- | :--- | :--- |
-| 아이디어 정리 | ✅ | 프로젝트 목적·가치 확립 |
-| UX Flow 설계 | ✅ | Figma 기반 4단 구조 완성 |
-| 감정 피드백 디자인 | ✅ | Processing 화면 감정 곡선 설계 |
-| Gemini MVP 생성 | ✅ | AI가 생성한 실동작 프론트 완성 |
-| GitHub 연동 | 🔄 | 모노레포 구조 / Actions 세팅 중 |
-| 백엔드 Mock API | 🟡 | Express+TypeScript 설계 중 |
-
-## 4. 로컬에서 실행하기 (Local Setup)
+## 3. 로컬에서 실행하기 (Local Setup)
 
 이 프로젝트는 `frontend` 폴더에 React(Vite) 코드를, 향후 `backend` 폴더에 서버 코드를 관리하는 **모노레포(Monorepo)** 구조입니다.
 
@@ -61,7 +50,7 @@
     npm run dev
     ```
 
-## 5. 기술 스택 (Tech Stack)
+## 4. 기술 스택 (Tech Stack)
 
 | 영역 | 사용 도구 | 비고 |
 | :--- | :--- | :--- |
@@ -72,7 +61,7 @@
 |  **Infra** | GitHub, Actions, AWS, Docker | 버전관리 및 배포 자동화 |
 |  **Docs** | Notion, Markdown, ADR 기록 | 전 과정 문서화 |
 
-## 6. 핵심 설계 포인트 (Design Principles)
+## 5. 핵심 설계 포인트 (Design Principles)
 
 * **기다림의 불확실성을 줄이는 UX**
     → 단순 속도보다 “예측 가능한 기다림”이 주는 안심감을 설계
@@ -83,7 +72,7 @@
 * **실험과 기록의 일상화**
     → 노션에 모든 의사결정(ADR)과 실험 로그를 남김
 
-## 7. 기대 효과 (Expected Outcomes)
+## 6. 기대 효과 (Expected Outcomes)
 
 | 구분 | 기대 효과 |
 | :--- | :--- |
@@ -96,6 +85,6 @@
 ## 8. 향후 확장 방향 (Next Step Ideas)
 
 * 실시간 음성 분석(Streaming STT)으로 회의 중 하이라이트 추출
-* 감정 기반 요약(Emotion-aware Summarization)
+* 요약(Summarization)
 * 팀 공유용 회의록 자동 포맷팅 기능
 * AI 회의 비서 연동 (예: “이 부분 다시 들어줘” 기능)
