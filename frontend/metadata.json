@@ -1,0 +1,5 @@
+
+{
+  "name": "회의록 변환 앱 (Meeting Transcription UI)",
+  "description": "회의 녹음 후 텍스트 변환 과정을 보여주는 간단한 실험용 MVP UI입니다. 실제 STT 기능은 없으며, 화면의 흐름과 진행 피드백의 자연스러움을 테스트하는 용도입니다."
+}
