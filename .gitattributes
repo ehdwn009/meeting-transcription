@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------------
+# 📌 Git Line Ending Normalization 설정 (Windows / macOS / Linux 통합)
+# ---------------------------------------------------------------------
+
+# 모든 텍스트 파일은 자동으로 LF로 통일
+* text=auto eol=lf
+
+# Windows 환경에서 생성된 일부 스크립트 파일은 CRLF 유지
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# XML, JSON, YAML, Markdown, Config 파일 등은 LF 고정
+*.xml text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.conf text eol=lf
+*.ini text eol=lf
+
+# Shell, Gradle, Git, npm 등 스크립트 파일은 LF 고정
+*.sh text eol=lf
+*.gradle text eol=lf
+*.gitignore text eol=lf
+*.gitattributes text eol=lf
+*.npmrc text eol=lf
+
+# Binary 파일은 변환하지 않음
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.exe binary
+*.dll binary
+*.so binary
+
+# Android Studio 및 IntelliJ 프로젝트 관련 파일
+*.iml text eol=lf
+.idea/* text eol=lf
